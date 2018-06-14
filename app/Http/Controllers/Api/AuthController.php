@@ -42,8 +42,8 @@ class AuthController extends Controller
             'email' => $data->input('email', '')
         ]);
 
-        if(dd($this->sendMessage($data->phone,
-            'Ваш пароль от сайта startSmart.Kz - '.$password.'')))
+        if($this->sendMessage($data->phone,
+            'Ваш пароль от сайта startSmart.Kz - '.$password.''))
             $user->passwordMessages()->create();
 
         return ['result' => true, 'details' => 'User created'];
